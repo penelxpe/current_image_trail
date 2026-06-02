@@ -161,34 +161,34 @@
             // initial state
             .set(img.DOM.el, {
                 opacity: 0,
-                scale: 0.9,
+                scale: 2,
                 zIndex: this.zIndexVal,
                 x: cacheMousePos.x - img.rect.width / 2,
                 y: cacheMousePos.y - img.rect.height / 2
             })
 
             // ease image IN
-            .to(img.DOM.el, 5, {
+            .to(img.DOM.el, 1, {
                 ease: Expo.easeOut,
                 opacity: 1,
                 scale: 1
             }, 0.1)
 
             // animate movement
-            .to(img.DOM.el, 5, {
+            .to(img.DOM.el, 3, {
                 ease: Expo.easeOut,
                 x: mousePos.x - img.rect.width / 2,
                 y: mousePos.y - img.rect.height / 2
             }, 0)
 
             // fade OUT
-            .to(img.DOM.el, 1, {
+            .to(img.DOM.el, 3, {
                 ease: Power1.easeOut,
                 //opacity: 0
             }, 0.7)
 
             // shrink OUT
-            .to(img.DOM.el, 1, {
+            .to(img.DOM.el, 5, {
                 ease: Quint.easeOut,
                 scale: 0
             }, 0.5);
