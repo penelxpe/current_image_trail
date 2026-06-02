@@ -191,7 +191,7 @@
             .to(img.DOM.el, 5, {
                 ease: Quint.easeOut,
                 scale: 0
-            }, 0.5);
+            }, 2);
         }
     }
 
