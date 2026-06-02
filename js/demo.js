@@ -175,7 +175,7 @@
             }, 0.1)
 
             // animate movement
-            .to(img.DOM.el, 0.9, {
+            .to(img.DOM.el, 5, {
                 ease: Expo.easeOut,
                 x: mousePos.x - img.rect.width / 2,
                 y: mousePos.y - img.rect.height / 2
