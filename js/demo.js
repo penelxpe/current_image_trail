@@ -41,12 +41,23 @@
     let mousePos = lastMousePos = cacheMousePos = { x: 0, y: 0 };
 
     // update the mouse position
-    window.addEventListener('pointermove', ev => {
-        mousePos = {
-            x: ev.clientX,
-            y: ev.clientY
-        };
+    const updatePointerPos = (x, y) => {
+        mousePos = { x, y };
+    };
+
+    window.addEventListener('mousemove', e => {
+        updatePointerPos(e.clientX, e.clientY);
     });
+
+    window.addEventListener('touchmove', e => {
+        const touch = e.touches[0];
+        updatePointerPos(touch.clientX, touch.clientY);
+    }, { passive: true });
+
+    window.addEventListener('touchstart', e => {
+        const touch = e.touches[0];
+        updatePointerPos(touch.clientX, touch.clientY);
+    }, { passive: true });
 
     // gets the distance from the current mouse position to the last recorded mouse position
     const getMouseDistance = () => MathUtils.distance(mousePos.x, mousePos.y, lastMousePos.x, lastMousePos.y);
