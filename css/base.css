@@ -481,5 +481,10 @@ a:focus {
     .content {
         height: 100vh;
         overflow: hidden;
+        html,
+        body,
+        .content {
+            touch-action: none;
+        }
     }
 }
