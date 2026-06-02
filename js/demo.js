@@ -45,19 +45,19 @@
         mousePos = { x, y };
     };
 
-    window.addEventListener('mousemove', e => {
-        updatePointerPos(e.clientX, e.clientY);
+    window.addEventListener('pointermove', e => {
+        mousePos = {
+            x: e.clientX,
+            y: e.clientY
+        };
     });
 
-    window.addEventListener('touchmove', e => {
-        const touch = e.touches[0];
-        updatePointerPos(touch.clientX, touch.clientY);
-    }, { passive: true });
-
-    window.addEventListener('touchstart', e => {
-        const touch = e.touches[0];
-        updatePointerPos(touch.clientX, touch.clientY);
-    }, { passive: true });
+    window.addEventListener('pointerdown', e => {
+        mousePos = {
+            x: e.clientX,
+            y: e.clientY
+        };
+    });
 
     // gets the distance from the current mouse position to the last recorded mouse position
     const getMouseDistance = () => MathUtils.distance(mousePos.x, mousePos.y, lastMousePos.x, lastMousePos.y);
@@ -110,7 +110,9 @@
             // zIndex value to apply to the upcoming image
             this.zIndexVal = 1;
             // mouse distance required to show the next image
-            this.threshold = 100;
+            this.threshold = window.matchMedia('(pointer: coarse)').matches ?
+                35 :
+                100;
             // render the images
             requestAnimationFrame(() => this.render());
         }
