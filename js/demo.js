@@ -110,9 +110,7 @@
             // zIndex value to apply to the upcoming image
             this.zIndexVal = 1;
             // mouse distance required to show the next image
-            this.threshold = window.matchMedia('(pointer: coarse)').matches ?
-                35 :
-                100;
+            this.threshold = 15;
             // render the images
             requestAnimationFrame(() => this.render());
         }
