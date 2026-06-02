@@ -188,27 +188,26 @@
             }, 0.5)
 
             // shrink OUT
-            .to(img.DOM.el, 1, {
+            .to(img.DOM.el, 2.5, {
                 ease: Quint.easeOut,
                 scale: 0
             }, 0.5);
         }
-    }
 
-    /***********************************/
-    /********** Preload stuff **********/
+        /***********************************/
+        /********** Preload stuff **********/
 
-    // Preload images
-    const preloadImages = () => {
-        return new Promise((resolve, reject) => {
-            imagesLoaded(document.querySelectorAll('.content__img'), resolve);
+        // Preload images
+        const preloadImages = () => {
+            return new Promise((resolve, reject) => {
+                imagesLoaded(document.querySelectorAll('.content__img'), resolve);
+            });
+        };
+
+        // And then..
+        preloadImages().then(() => {
+            // Remove the loader
+            document.body.classList.remove('loading');
+            new ImageTrail();
         });
-    };
-
-    // And then..
-    preloadImages().then(() => {
-        // Remove the loader
-        document.body.classList.remove('loading');
-        new ImageTrail();
-    });
-}
+    }
