@@ -67,7 +67,7 @@
             this.DOM = { el: el };
             // image deafult styles
             this.defaultStyle = {
-                scale: 2,
+                scale: 1,
                 x: 0,
                 y: 0,
                 opacity: 0
@@ -111,7 +111,7 @@
             this.zIndexVal = 1;
             // mouse distance required to show the next image
             this.threshold = window.matchMedia('(pointer: coarse)').matches ?
-                35 :
+                25 :
                 100;
             // render the images
             requestAnimationFrame(() => this.render());
@@ -175,7 +175,7 @@
             }, 0.1)
 
             // animate movement
-            .to(img.DOM.el, 3, {
+            .to(img.DOM.el, 1, {
                 ease: Expo.easeOut,
                 x: mousePos.x - img.rect.width / 2,
                 y: mousePos.y - img.rect.height / 2
@@ -188,7 +188,7 @@
             }, 0.7)
 
             // shrink OUT
-            .to(img.DOM.el, 5, {
+            .to(img.DOM.el, 2, {
                 ease: Quint.easeOut,
                 scale: 0
             }, 2);
