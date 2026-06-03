@@ -41,6 +41,32 @@ body {
     background: white;
 }
 
+tit {
+    padding: 30%;
+    font-size: 32pt;
+    font-family: 'MaligneUnlicensedTrial-Regular', sans-serif;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+subtitle {
+    padding: 30%;
+    font-size: 18pt;
+    font-family: 'MaligneUnlicensedTrial-Regular', sans-serif;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.paragraph {
+    font-size: 1em;
+    line-height: 1.5em;
+    margin: 1em 0;
+}
+
 a:focus {
     outline: thin dotted;
 }
@@ -48,11 +74,6 @@ a:focus {
 a:active,
 a:hover {
     outline: 0;
-}
-
-h1 {
-    font-size: 2em;
-    margin: 0.67em 0;
 }
 
 abbr[title] {
